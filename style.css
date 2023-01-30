@@ -1,0 +1,151 @@
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* 
+body{
+    overflow: hidden;
+} */
+#navbar{
+    z-index: 999;
+    background-color: #fff;
+    padding: 1rem;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    gap: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn{
+    text-align: center;
+    max-width: 100%;
+    padding:.2rem .5rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #222;
+    border-radius: 0.25rem;
+    background: #333;
+    color: #fff;
+    transition: all 0.3s linear;
+}
+.btn:hover{
+   background-color: transparent;
+   color: #333;
+}
+
+.game{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem 0 0 0;
+    gap: 1rem;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.content .cards{
+    display: grid;
+    justify-self: center;
+    padding: 1rem;
+    width: fit-content;
+    gap: 1.5rem;
+    perspective: 1000px;
+}
+
+.counter{
+    font-family: sans-serif;
+    justify-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    padding: 1rem;
+    gap: 0.5rem;
+    color: #fff;
+}
+.col-2{
+    grid-template-columns: repeat(2, 1fr) !important;
+}
+.col-4{
+    grid-template-columns: repeat(4, 1fr) !important;
+}
+.col-6{
+    grid-template-columns: repeat(6, 1fr) !important;
+}
+.card{ 
+    position: relative;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(315deg, #373737, #333);
+    box-shadow: -5px -5px 15px #989999,
+    5px 5px 15px #353838;
+    border-radius: .75rem;
+    transition: all .5s linear;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    transform: scale(1);
+} 
+.card:active{
+    transform: scale(0.95);
+}
+
+.card .front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility :hidden;
+    transition: transform .4s cubic-bezier(1, 0.1, 0.22, 0.5);
+    transform: rotateY(180deg);
+}
+
+.show{
+   transform: rotateY(180deg);
+}
+.flip{
+    transform: rotateY(0) !important;
+}
+.hide{
+    transform: rotateY(0);
+}
+
+@media  screen and (width < 1000px) and (width > 720px){
+    .card{
+            width: 75px;
+            height: 75px;
+    }
+}
+
+@media  screen and (width <= 720px) and (width > 600px){
+    .card{
+            width: 70px;
+            height: 70px;
+    }
+        .btn {
+            padding: .1rem .4rem;
+            font-size: 1rem;
+        }
+}
+@media screen and (width <= 600px){
+    .card{
+            width: 45px;
+            height: 45px;
+    }
+        .btn {
+            padding: .1rem .4rem;
+            font-size: .75rem;
+        }
+}
